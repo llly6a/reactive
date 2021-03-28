@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import './App.css';
+import UsersTable from './components/Users/UsersTable';
+import { requestUsers } from './redux/users-reducer';
 
 function App() {
+
+  const dispatch = useDispatch();
+
+  //request users on first load
+  useEffect(() => {
+    dispatch(requestUsers());
+  },[dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+      <div className="App">
+          Пользователи
+          <UsersTable/>
+      </div>
+
   );
 }
 
