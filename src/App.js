@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import './App.css';
-import UsersTable from './components/Users/UsersTable';
 import { requestUsers } from './redux/users-reducer';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import UsersTable from './components/Users/UsersTable';
 
 function App() {
 
@@ -16,8 +18,7 @@ function App() {
   return (
 
       <div className="App">
-          Пользователи
-          <UsersTable/>
+          <UsersTable />
       </div>
 
   );
