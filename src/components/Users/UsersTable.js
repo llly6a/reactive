@@ -10,6 +10,7 @@ export default function UsersTable () {
     const [showPosts, setShowPosts] = useState(false);
     const [userId, setUserID] = useState(null);
     const [userName, setUserName] = useState(null);
+
     //get users and loading condition from redux store
     const {users, listLoading } = useSelector(state => ({
         users: state.users.users,
@@ -17,6 +18,7 @@ export default function UsersTable () {
     }), shallowEqual);
     const dispatch = useDispatch();
 
+    // clear old user fields on open edit user form
     const showEditForm = (id) => {
         if(id !== userId){
             dispatch(clearEditUser());
@@ -25,6 +27,7 @@ export default function UsersTable () {
         setShowUser(true);
     }
 
+    // set user ID and name on open posts
     const showUserPosts = (id, name) => {
         if(id !== userId){
             setUserID(id);
@@ -43,6 +46,7 @@ export default function UsersTable () {
     
     return (
         <div>
+            {/* head section */}
             <div className="d-flex justify-content-between">
                 <h2>Users Table</h2>
                 <Button variant="outline-primary"  onClick={() => showEditForm(null)}> Create User </Button>
@@ -82,6 +86,7 @@ export default function UsersTable () {
             </tbody>
             </Table>
             }
+            {/* Edit / Create user and Posts Modal windows  */}
             {showUser && <EditDialog show={showUser} userId={userId} onHide={closeUserEdit}/>}
             {showPosts && <Posts show={showPosts} userId={userId} userName={userName} onHide={closeUserPosts}/>}
         </div>

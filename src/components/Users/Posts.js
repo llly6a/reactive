@@ -9,6 +9,7 @@ export default function Posts({ show, userId, userName, onHide }) {
 
     const dispatch = useDispatch();
 
+    // clear posts on close
     const handleClose = () => {
         dispatch(clearPosts());
         onHide();
@@ -27,6 +28,7 @@ export default function Posts({ show, userId, userName, onHide }) {
         }
     }, [userId, dispatch]);
 
+    //select posts from store
     const posts = useSelector(state => state.users.userPosts);
 
     return (
