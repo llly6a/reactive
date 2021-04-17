@@ -48,7 +48,7 @@ export default function EditDialog({ show, userId, onHide }) {
 
     return (
         <Modal size="lg" show={show} animation={false} onHide={onHide}>
-            <Modal.Header closeButton>
+            <Modal.Header closeButton >
                 {userId ? <h4>Edit user</h4> : <h4>Create new user</h4>}
             </Modal.Header>
             <Modal.Body>
@@ -60,8 +60,8 @@ export default function EditDialog({ show, userId, onHide }) {
                     :
                     <EditForm user={user} updateUser={updateUser} />}
             </Modal.Body>
-            <Modal.Footer>
-                <Button form="UserEditForm" type="submit" variant="outline-primary">
+            <Modal.Footer >
+                <Button form="UserEditForm" type="submit" variant="primary">
                     {isSubmittimg && <Spinner
                         className="mr-2"
                         as="span"
@@ -70,7 +70,7 @@ export default function EditDialog({ show, userId, onHide }) {
                         role="status"
                         aria-hidden="true"
                     />}Save</Button>
-                <Button variant="outline-secondary" onClick={() => onHide()}>Discard</Button>
+                <Button variant="secondary" onClick={() => onHide()}>Close</Button>
             </Modal.Footer>
         </Modal>
     )

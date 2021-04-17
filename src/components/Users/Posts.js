@@ -32,7 +32,7 @@ export default function Posts({ show, userId, userName, onHide }) {
     const posts = useSelector(state => state.users.userPosts);
 
     return (
-        <Modal size="lg" show={show} animation={false} onHide={handleClose}>
+        <Modal size="lg" show={show} animation={false} onHide={handleClose} scrollable>
             <Modal.Header closeButton>
                 {userName && <h4>{userName} posts</h4>}
             </Modal.Header>
@@ -62,7 +62,7 @@ export default function Posts({ show, userId, userName, onHide }) {
                 })}
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="outline-secondary" onClick={() => handleClose()}>Close</Button>
+                <Button variant="secondary" onClick={() => handleClose()}>Close</Button>
             </Modal.Footer>
         </Modal>
     )

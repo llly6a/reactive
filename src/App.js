@@ -16,11 +16,21 @@ function App() {
   },[dispatch]);
 
   return (
-
       <div className="App">
-          <UsersTable />
+        <ul className="bg-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <UsersTable />
       </div>
-
   );
 }
 
